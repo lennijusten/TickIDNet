@@ -2,7 +2,6 @@ import tensorflow as tf
 import pandas as pd
 from PIL import Image
 import numpy as np
-from math import floor
 import os
 
 path = '/ImageFolder' # path to folder of cropped images
