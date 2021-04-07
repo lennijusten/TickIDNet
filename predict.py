@@ -7,7 +7,7 @@ import os
 path = '/ImageFolder' # path to folder of cropped images
 img_shape = (224,224,3)
 
-species = ['Amblyomma', 'Dermacentor', 'Ixodes']
+species = ['Amblyomma americanum', 'Dermacentor variabilis', 'Ixodes scapularis']
 mbs =32
 
 model = tf.keras.models.load_model('Model_Final')
