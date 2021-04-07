@@ -210,9 +210,9 @@ def run_test_harness():
     results = model_results(model, val_it)
     logging.info("FUNCTION: run_test_harness() -- writing results to results.csv")
 
-    results.to_csv("results_{}.csv".format(lr))
+    results.to_csv("results.csv")
 
-    model.save('my_model') # Tensorflow method https://www.tensorflow.org/guide/keras/save_and_serialize
+    model.save('my_model') # Model directory. See Tensorflow method https://www.tensorflow.org/guide/keras/save_and_serialize
 
     logging.info("FUNCTION: run_test_harness() -- exiting")
 
