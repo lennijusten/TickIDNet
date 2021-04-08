@@ -38,18 +38,6 @@ def model_results(model, test_generator):
         "prob_all": [idx for idx in pred]
     }
 
-    correct = []
-    for idx in range(len(results_dict["fname"])):
-        if results_dict['class_num'][idx] == results_dict['pred_num'][idx]:
-            correct.append(1)
-        else:
-            correct.append(0)
-    results_dict["correct"] = correct
-
-    df = pd.DataFrame.from_dict(results_dict)
-    return df
-
-
 df = model_results(model, test_it)
 
 df.to_csv('results.csv')    # save results to csv file
