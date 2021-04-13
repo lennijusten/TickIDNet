@@ -1,0 +1,4 @@
+tensorflow
+Pillow
+pandas
+numpy
