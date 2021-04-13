@@ -3,14 +3,37 @@ import pandas as pd
 from PIL import Image
 import numpy as np
 import os
+import argparse
 
-path = '/ImageFolder' # path to folder of cropped images
+def read_args():  # Get user arguments
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("--source",
+                        type=str,
+                        default=None,
+                        help="Path to directory of cropped 224x224 images to predict")
+
+    parser.add_argument("--dest",
+                        type=str,
+                        default=None,
+                        help="Save destination for results csv")
+    
+    parser.add_argument("--model",
+                        type=str,
+                        default=None,
+                        help="Path to save model directory")
+     return args
+
+args = read_args()
+
+
+path = args.source # path to folder of cropped images
 img_shape = (224,224,3)
 
 species = ['Amblyomma americanum', 'Dermacentor variabilis', 'Ixodes scapularis']
 mbs =32
 
-model = tf.keras.models.load_model('Model_Final')
+model = tf.keras.models.load_model(args.model)
 
 
 datagen = tf.keras.preprocessing.image.ImageDataGenerator(featurewise_std_normalization=True,
@@ -40,4 +63,4 @@ def model_results(model, test_generator):
 
 df = model_results(model, test_it)
 
-df.to_csv('results.csv')    # save results to csv file
+df.to_csv(os.path.join(args.destination,'results.csv'))    # save results to csv file
