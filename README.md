@@ -1,5 +1,23 @@
 # TickIDNet
 
+## Installation
+The following lines can be copied into your console (called Terminal on mac). 
+
+### Anaconda (recommended)
+```bash
+conda create --name venv python=3.6
+conda activate venv
+conda install tensorflow pillow tqdm pandas
+```
+
+### Virtualenv
+```bash
+pip install virtualenv
+virtualenv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
 ## Sample Image Data
 The images available in this repository were used in the training of TickIDNet and can also be used to test the network. The majority of images used in the development of TickIDNet, including these, were initially sourced from [iNaturalist](https://www.inaturalist.org/). The citations below reference the publically available image data from iNaturalist:
 
