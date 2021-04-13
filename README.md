@@ -7,7 +7,7 @@ The following lines can be copied into your console (called Terminal on mac).
 ```bash
 conda create --name venv python=3.6
 conda activate venv
-conda install tensorflow pillow tqdm pandas
+conda install tensorflow pillow numpy pandas
 ```
 
 ### Virtualenv
