@@ -1,6 +1,6 @@
-# 1) TickIDNet
+TickIDNet
 
-## Installation
+## 1) Installation
 The following lines can be copied into your console (called Terminal on mac). 
 
 ### Anaconda (recommended)
