@@ -12,7 +12,7 @@ Amblyomma americanum Linnaeus, 1758 in GBIF Secretariat (2019). GBIF Backbone Ta
 ### File naming conventions
 The files in `\Sample Image Data` are all named in the following way:
 ```
-Genus_species_sex_lifestage_source_alive_fed_#.jpg
+Genus_species_sex_lifestage_source_alive_feedstage_#.jpg
 ```
 For example: `Dermacentor_variabilis_m_a_ta_unk_unfed_1.jpg`
 
