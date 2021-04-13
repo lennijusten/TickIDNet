@@ -10,7 +10,7 @@ Dermacentor variabilis Say, 1821 in GBIF Secretariat (2019). GBIF Backbone Taxon
 Amblyomma americanum Linnaeus, 1758 in GBIF Secretariat (2019). GBIF Backbone Taxonomy. Checklist dataset https://doi.org/10.15468/39omei accessed via GBIF.org on 2020-11-23.
   
 ### File naming conventions
-The files in `\Sample Image Data` are all named according to the following standard:
+The files in `\Sample Image Data` are all named in the following way:
 ```
 Genus_species_sex_lifestage_source_alive_fed_#.jpg
 ```
