@@ -1,4 +1,4 @@
-TickIDNet
+# TickIDNet
 
 ## 1) Installation
 You can install the required packages with `conda` and `pip`
