@@ -19,7 +19,7 @@ pip install -r requirements.txt
 ```
 
 ## 2) Making predictions
-To run TickIDNet on a batch of images with `predict.py` and the appropriate arguments in your terminal/console
+You can run TickIDNet on a batch of images with `predict.py` and the appropriate arguments in your terminal/console
   
 ```
 python predict.py source dest model
