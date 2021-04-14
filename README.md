@@ -18,7 +18,19 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Sample Image Data
+## 2) Making predictions
+To make a prediction, run `predict.py` with the appropriate arguments in your terminal/console
+  
+```
+python predict.py source dest model
+```
+where `source` is a path to a directory of images, `dest` is the path where you want to save the output CSV file, and `model` is the path to the saved model.
+
+The script will automatically crop any image in the directory into a square along its shortest side and then resize it to the standard 224x224 input size. As such, please make sure the tick is near the center of the image and not, for example, on the upper edge of a portrait-style picture. See `\Sample Image Data` for examples. 
+
+There is also a strong correlation between the relative size of the tick within the image and the networks accuracy. For better results try cropping the pictures closely around the tick. 
+
+## 3) Sample Image Data
 The images available in this repository were used in the training of TickIDNet and can also be used to test the network. The majority of images used in the development of TickIDNet, including these, were initially sourced from [iNaturalist](https://www.inaturalist.org/). The citations below reference the publically available image data from iNaturalist:
 
 Ixodes scapularis Say, 1821 in GBIF Secretariat (2019). GBIF Backbone Taxonomy. Checklist dataset https://doi.org/10.15468/39omei accessed via GBIF.org on 2020-11-23.  
