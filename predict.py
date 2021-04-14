@@ -5,62 +5,98 @@ import numpy as np
 import os
 import argparse
 
+img_shape = (224,224,3)
+
+classes = ['Amblyomma americanum', 'Dermacentor variabilis', 'Ixodes scapularis']
+
 def read_args():  # Get user arguments
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--source",
+    parser.add_argument("source",
                         type=str,
                         default=None,
                         help="Path to directory of cropped 224x224 images to predict")
 
-    parser.add_argument("--dest",
+    parser.add_argument("dest",
                         type=str,
                         default=None,
                         help="Save destination for results csv")
     
-    parser.add_argument("--model",
+    parser.add_argument("model",
                         type=str,
                         default=None,
                         help="Path to save model directory")
-     return args
+    
+    args = parser.parse_args()
+    
+    return args
 
 args = read_args()
 
 
-path = args.source # path to folder of cropped images
-img_shape = (224,224,3)
+def get_input(path):  # Load image
+    img = Image.open(path)
+    return img
 
-species = ['Amblyomma americanum', 'Dermacentor variabilis', 'Ixodes scapularis']
-mbs =32
 
+def im_crop(image):  # Crop images into a square along their shortest side
+    dim = image.size
+    shortest = min(dim[0:2])
+    longest = max(dim[0:2])
+
+    if shortest != longest:
+        lv = np.array(range(0, shortest)) + floor((longest - shortest) / 2)
+        if dim[0] == shortest:
+            im_cropped = np.asarray(image)[lv, :, :]
+        else:
+            im_cropped = np.asarray(image)[:, lv, :]
+
+        im_cropped = Image.fromarray(im_cropped)
+    else:
+        im_cropped = image
+
+    return im_cropped
+
+
+images = []
+fname = []
+for f in os.listdir(args.source):
+        try:
+            img = get_input(os.path.join(args.source, f))
+            img_cropped = im_crop(img)
+            img_resized = img_cropped.resize((img_shape[0], img_shape[1]))
+            pixels = np.asarray(img_resized)  # convert image to array
+            pixels = pixels.astype('float32')
+            input = np.expand_dims(pixels, axis=0)  # adds batch dimension
+            images.append(input)
+            fname.append(f)
+        except:
+            print("Image {} could not be opened".format(f))
+            pass
+
+   
+ # stack up images list to pass for prediction              
+images = np.vstack(images)
+    
 model = tf.keras.models.load_model(args.model)
 
 
-datagen = tf.keras.preprocessing.image.ImageDataGenerator(featurewise_std_normalization=True,
-                                                              featurewise_center=True)
-datagen.mean = [0.485, 0.456, 0.406]
-datagen.std = 0.225  # [0.229, 0.224, 0.225]
-
-test_it = datagen.flow_from_directory(path,
-                                         class_mode='categorical',
-                                         batch_size=mbs,
-                                         target_size=(img_shape[0], img_shape[1]),
-                                         shuffle=False)
+results = model.predict(images, batch_size=32, verbose=1)
 
 
-def model_results(model, test_generator):
-    pred = model.predict(test_generator, steps=len(test_generator), verbose=1)
+class_prob = np.amax(results, 1).tolist()
+rounded_class_prob = [round(100 * x, 2) for x in class_prob]
+class_ind = np.argmax(results, 1)
+preds = [classes[i] for i in class_ind]
 
-    results_dict = {
-        "fname": [os.path.basename(file) for file in test_generator.filenames],
-        "class_num": test_generator.classes,
-        "label": [list(test_generator.class_indices)[idx] for idx in test_generator.classes],
-        "pred_num": np.argmax(pred, 1),
-        "pred_label": [list(test_generator.class_indices)[idx] for idx in np.argmax(pred, 1)],
-        "prob": [round(np.max(idx) * 100, 2) for idx in pred],
-        "prob_all": [idx for idx in pred]
+NN_dict = {
+        "fname": fname,
+        "prediction": preds,
+        "class": class_ind.tolist(),
+        "prob": rounded_class_prob,
+        "results": results.tolist()
     }
 
-df = model_results(model, test_it)
+df = pd.DataFrame(NN_dict)
 
-df.to_csv(os.path.join(args.destination,'results.csv'))    # save results to csv file
+df.to_csv(os.path.join(args.dest,'results.csv'))    # save results to csv file
