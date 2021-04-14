@@ -1,8 +1,8 @@
 TickIDNet
 
 ## 1) Installation
-The following lines can be copied into your console (called Terminal on mac). 
-
+You can install the required packages with `conda` and `pip`
+  
 ### Anaconda (recommended)
 ```bash
 conda create --name venv python=3.6
