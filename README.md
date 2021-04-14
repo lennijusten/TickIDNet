@@ -19,16 +19,16 @@ pip install -r requirements.txt
 ```
 
 ## 2) Making predictions
-To make a prediction, run `predict.py` with the appropriate arguments in your terminal/console
+To run TickIDNet on a batch of images with `predict.py` and the appropriate arguments in your terminal/console
   
 ```
 python predict.py source dest model
 ```
 where `source` is a path to a directory of images, `dest` is the path where you want to save the output CSV file, and `model` is the path to the saved model.
 
-The script will automatically crop any image in the directory into a square along its shortest side and then resize it to the standard 224x224 input size. As such, please make sure the tick is near the center of the image and not, for example, on the upper edge of a portrait-style picture. See `\Sample Image Data` for examples. 
+The script will internally crop any images in the directory (your files will remain unchanged) into a square along its shortest side and then resize it to the standard 224x224 input size. The tick will need to be near the center of the image and not, for example, on the upper edge of a portrait-style picture. See `\Sample Image Data` for examples. 
 
-There is also a strong correlation between the relative size of the tick within the image and the networks accuracy. For better results try cropping the pictures closely around the tick. 
+There is also a strong correlation between the relative size of the tick in the image and the networks accuracy. For better results try cropping the pictures closely around the tick. 
 
 ## 3) Sample Image Data
 The images available in this repository were used in the training of TickIDNet and can also be used to test the network. The majority of images used in the development of TickIDNet, including these, were initially sourced from [iNaturalist](https://www.inaturalist.org/). The citations below reference the publically available image data from iNaturalist:
