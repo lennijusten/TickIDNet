@@ -1,0 +1,4 @@
+,MC < 10%,MC < 5%,MC < 2%,None
+Correctly classified (CC),91.36,87.52,76.96,91.36
+Not classified (UC),0,7.52,21.12,0
+Misclassified (MC),8.64,4.96,1.92,8.64
