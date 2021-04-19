@@ -31,7 +31,7 @@ The script will internally crop any images in the directory (your files will rem
 There is also a strong correlation between the relative size of the tick in the image and the networks accuracy. For better results try cropping the pictures closely around the tick. 
 
 ## 3) Sample Image Data
-The images available in this repository were used in the evaluation of TickIDNet. The majority of images used in the development of TickIDNet, including these, were initially sourced from [iNaturalist](https://www.inaturalist.org/). The citations below reference the publically available image data from iNaturalist:
+The images available in this repository were used in the evaluation of TickIDNet. The majority of images used in the development of TickIDNet, including those in the `\Sample Images` folder, were initially sourced from [iNaturalist](https://www.inaturalist.org/). The citations below reference the publically available image data from iNaturalist:
 
 Ixodes scapularis Say, 1821 in GBIF Secretariat (2019). GBIF Backbone Taxonomy. Checklist dataset https://doi.org/10.15468/39omei accessed via GBIF.org on 2020-11-23.  
   
