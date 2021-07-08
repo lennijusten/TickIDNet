@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 # Villon, S., Mouillot, D., Chaumont, M. et al. A new method to control error rates in automated species identification
 # with deep learning algorithms. Sci Rep 10, 10972 (2020). https://doi.org/10.1038/s41598-020-67573-7
 
-df = pd.read_csv('/Users/lenni/Downloads/user-generated_testset - user-generated_testset (1).csv')
+df = pd.read_csv('results.csv')
 
 tau = np.linspace(30, 100, num=1000) # range of possible thresholds
 
