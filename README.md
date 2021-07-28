@@ -30,8 +30,8 @@ The script will internally crop any images in the directory (your files will rem
 
 There is also a strong correlation between the relative size of the tick in the image and the networks accuracy. For better results try cropping the pictures closely around the tick. 
 
-## 3) Sample Image Data
-The images available in this repository were used in the evaluation of TickIDNet. The majority of images used in the development of TickIDNet, including those in the `\Sample Image Data` folder, were initially sourced from [iNaturalist](https://www.inaturalist.org/). The citations below reference the publically available image data from iNaturalist:
+## 3) Data
+Sample images available in this repository were used in the evaluation of TickIDNet. The majority of images used in the development of TickIDNet, including those in the `\Sample Image Data` folder, were initially sourced from [iNaturalist](https://www.inaturalist.org/). The citations below reference the publically available image data from iNaturalist:
 
 *Amblyomma americanum*:  
 GBIF.org (16 July 2020) GBIF Occurrence Download https://doi.org/10.15468/dl.4gbcs6. 
