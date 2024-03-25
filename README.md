@@ -1,4 +1,5 @@
 # TickIDNet
+Justen, Lennart, et al. “Identification of Public Submitted Tick Images: A Neural Network Approach.” PLOS ONE, vol. 16, no. 12, Dec. 2021, p. e0260622. PLoS Journals, https://doi.org/10.1371/journal.pone.0260622.
 
 ## 1) Installation
 You can install the required packages with `conda` and `pip`
