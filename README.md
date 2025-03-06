@@ -32,7 +32,7 @@ The script will internally crop any images in the directory (your files will rem
 There is also a strong correlation between the relative size of the tick in the image and the networks accuracy. For better results try cropping the pictures closely around the tick. 
 
 ## 3) Model
-The final model can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1Gt9not2IZ4LFaMrJ975UBmICiHKj3Ex9?usp=sharing). See the [docs](https://www.tensorflow.org/guide/keras/save_and_serialize) for more info.
+The final model can be downloaded from [Google Drive](https://drive.google.com/file/d/124IfnT6rNLhmPr_3vH62jrK3OLL_fFrI/view?usp=drive_link). See the [docs](https://www.tensorflow.org/guide/keras/save_and_serialize) for more info on loading models.
 
 ## 4) Data
 Sample images available in this repository were used in the evaluation of TickIDNet. The majority of images used in the development of TickIDNet, including those in the `\Sample Image Data` folder, were initially sourced from [iNaturalist](https://www.inaturalist.org/). The citations below reference the publically available image data from iNaturalist:
